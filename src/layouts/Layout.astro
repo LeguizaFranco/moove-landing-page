@@ -1,0 +1,28 @@
+---
+import "./src/styles/global.css";
+const description =
+	"Únete a nuestro gimnasio y transforma tu cuerpo y mente. Ofrecemos entrenamientos personalizados, un ambiente motivador y equipos de última generación para ayudarte a alcanzar tus metas de fitness. Ya sea que busques tonificar, perder peso o aumentar tu fuerza, estamos aquí para apoyarte en cada paso del camino.";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/svg+xml" href="/logo.ico" />
+		<link rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preload" href="/fondo.webp" as="image" type="image/webp" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Moove</title>
+	</head>
+</html>
+<body class="bg-gray-100 text-gray-900" id="home">
+	<slot />
+</body>

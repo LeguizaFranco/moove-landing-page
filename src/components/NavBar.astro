@@ -1,0 +1,51 @@
+---
+const navItems = [
+    { href: "#galery", label: "Galería" },
+    { href: "#plans", label: "Planes" },
+    { href: "#contact", label: "Contacto" },
+];
+---
+
+<header
+    class="bg-gray-900 text-white border-b border-gray-800 shadow-lg p-4 sticky top-0 z-50"
+>
+    <div
+        class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 lg:px-8"
+    >
+        <!-- Logo -->
+        <a
+            href="#home"
+            class="mb-4 sm:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-lg"
+            aria-label="Moove Gym - Página de inicio"
+        >
+            <img
+                src="/logo.ico"
+                alt="Logo de Moove - Entrenamiento y Nutrición"
+                class="h-16 sm:h-20 w-auto object-contain"
+                width="160"
+                height="80"
+            />
+        </a>
+
+        <!-- Menú de navegación -->
+        <nav class="w-full sm:w-auto">
+            <ul
+                class="flex flex-wrap justify-center sm:justify-end space-x-2 sm:space-x-6"
+            >
+                {
+                    navItems.map(({ href, label }) => (
+                        <li>
+                            <a
+                                href={href}
+                                class="inline-block py-2 px-3 text-lg font-medium hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-lg transition-colors duration-300"
+                                aria-label={`Ver ${label.toLowerCase()}`}
+                            >
+                                {label}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+    </div>
+</header>
