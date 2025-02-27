@@ -1,13 +1,13 @@
 ---
 const galleryImages = [
-    "/imagen-pesas.webp",
-    "/imagen-pesas.webp",
-    "/imagen-pesas.webp",
-    "/imagen-pesas.webp",
-    "/imagen-pesas.webp",
-    "/imagen-pesas.webp",
-    "/imagen-pesas.webp",
-    "/imagen-pesas.webp",
+    { type: "video", src: "/video.webm" },
+    { type: "image", src: "/imagen5.webp" },
+    { type: "image", src: "/imagen2.webp" },
+    { type: "image", src: "/imagen3.webp" },
+    { type: "image", src: "/imagen6.webp" },
+    { type: "image", src: "/imagen1.webp" },
+    { type: "image", src: "/imagen7.webp" },
+    { type: "image", src: "/imagen4.webp" },
 ];
 ---
 
@@ -18,14 +18,23 @@ const galleryImages = [
 
     <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {
-            galleryImages.map((image, index) => (
+            galleryImages.map((item, index) => (
                 <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                    <img
-                        src={image}
-                        alt={`Galería ${index + 1}`}
-                        class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-110"
-                        loading="lazy"
-                    />
+                    {item.type === "image" ? (
+                        <img
+                            src={item.src}
+                            alt={`Galería ${index + 1}`}
+                            class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-110"
+                            loading="lazy"
+                        />
+                    ) : (
+                        <video
+                            src={item.src}
+                            class="w-full h-full  object-contain"
+                            controls
+                            muted
+                        />
+                    )}
                 </div>
             ))
         }
