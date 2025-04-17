@@ -1,65 +1,90 @@
-<section class="bg-gray-900 text-white py-16 px-6">
+<section
+    class="bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 text-white py-16 px-4 sm:px-6"
+    id="social"
+>
     <div class="max-w-5xl mx-auto text-center">
-        <h2 class="titulo">Alumnos Contentos</h2>
-        <p class="parrafo">
-            Nuestros alumnos comparten cómo avanzan en sus entrenamientos.
-        </p>
+        <h2 class="titulo">Activo en redes</h2>
     </div>
 
-    <div class="mt-10 flex justify-center">
-        <!-- Publicación de Instagram embebida con carga diferida -->
-        <blockquote
-            id="instaPost"
-            class="instagram-media w-[90%] sm:w-[380px] md:w-[420px] lg:w-[480px]"
-            data-src="https://www.instagram.com/p/DF6ZseopAXq/?hl=es-la&img_index=1"
-            data-instgrm-version="14"
-        >
-        </blockquote>
+    <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Reel 1 -->
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+                <div class="relative pt-[125%]">
+                    <blockquote
+                        class="instagram-media absolute top-0 left-0 w-full h-full"
+                        data-instgrm-permalink="https://www.instagram.com/reel/DHriL5QJIBL/"
+                        data-instgrm-version="14"
+                        aria-label="Reel de Instagram sobre entrenamiento en Moove"
+                    >
+                        <div
+                            class="flex items-center justify-center h-full bg-gray-100"
+                        >
+                            <p class="text-gray-500">Cargando reel...</p>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Reel 2 -->
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+                <div class="relative pt-[125%]">
+                    <blockquote
+                        class="instagram-media absolute top-0 left-0 w-full h-full"
+                        data-instgrm-permalink="https://www.instagram.com/p/DGjjU_3Js4S/"
+                        data-instgrm-version="14"
+                        aria-label="Reel de Instagram sobre nutrición en Moove"
+                    >
+                        <div
+                            class="flex items-center justify-center h-full bg-gray-100"
+                        >
+                            <p class="text-gray-500">Cargando reel...</p>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Reel 3 -->
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+                <div class="relative pt-[125%]">
+                    <blockquote
+                        class="instagram-media absolute top-0 left-0 w-full h-full"
+                        data-instgrm-permalink="https://www.instagram.com/p/DF6ZseopAXq/"
+                        data-instgrm-version="14"
+                        aria-label="Reel de Instagram sobre clases en Moove"
+                    >
+                        <div
+                            class="flex items-center justify-center h-full bg-gray-100"
+                        >
+                            <p class="text-gray-500">Cargando reel...</p>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón para ver más en Instagram -->
+        <div class="text-center mt-8">
+            <a
+                href="https://www.instagram.com/moovetandil/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition"
+            >
+                Ver más en Instagram
+            </a>
+        </div>
     </div>
+
+    <!-- Carga el script de Instagram (solo una vez) -->
+    <script defer src="//www.instagram.com/embed.js"></script>
 </section>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let instaPost = document.getElementById("instaPost");
-        let observer = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        // Agregar la URL real del post de Instagram
-                        instaPost.setAttribute(
-                            "data-instgrm-permalink",
-                            instaPost.getAttribute("data-src"),
-                        );
-                        instaPost.removeAttribute("data-src");
-
-                        // Cargar el script de Instagram si aún no está en el DOM
-                        if (!window.instgrm) {
-                            let script = document.createElement("script");
-                            script.src = "https://www.instagram.com/embed.js";
-                            script.async = true;
-                            script.onload = () => {
-                                if (window.instgrm) {
-                                    window.instgrm.Embeds.process();
-                                }
-                            };
-                            document.body.appendChild(script);
-                        } else {
-                            // Si el script ya estaba cargado, forzar su ejecución
-                            window.instgrm.Embeds.process();
-                        }
-
-                        // Dejar de observar una vez cargado
-                        observer.unobserve(instaPost);
-                    }
-                });
-            },
-            { threshold: 0.1 },
-        );
-
-        observer.observe(instaPost);
-    });
-</script>
-
 <style>
     /* Estilos mejorados */
     .titulo {
@@ -70,30 +95,33 @@
         margin-bottom: 1rem;
     }
 
-    @media (min-width: 640px) {
-        .titulo {
-            font-size: 3rem;
-            line-height: 1.3;
-        }
-    }
-
-    @media (min-width: 768px) {
-        .titulo {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .titulo {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-    }
     .parrafo {
         font-family: "Montserrat", serif;
         font-size: 1.2rem;
         margin-bottom: 1rem;
         font-weight: 700;
+    }
+
+    .instagram-embed-container {
+        position: relative;
+        min-height: 400px; /* Fallback para mobile */
+    }
+
+    @media (min-width: 768px) {
+        .instagram-embed-container {
+            min-height: 320px;
+        }
+    }
+
+    /* Mejoras de accesibilidad para los iframes */
+    iframe {
+        color-scheme: dark; /* Forza modo oscuro en los embeds */
+    }
+
+    /* Efecto hover sutil para indicar interactividad */
+    .instagram-embed-container:hover {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+        transition: all 0.2s ease;
     }
 </style>
