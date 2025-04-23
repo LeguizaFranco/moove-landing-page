@@ -42,7 +42,7 @@ El diseño es **responsivo**, **rápido** y **centrado en el usuario**, lo que g
 
 ## 📸 Vista Previa
 
-> [_Próximamente: captura de pantalla o demo en vivo_](https://moovetandil.com/)
+> [_Visitar sitio_](https://moovetandil.com/)
 
 ---
 
