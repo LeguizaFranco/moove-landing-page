@@ -41,6 +41,7 @@ const navItems = [
                                 href={href}
                                 class="inline-block py-2 px-3 text-lg font-medium hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-lg transition-colors duration-300"
                                 aria-label={`Ver ${label.toLowerCase()}`}
+                                data-scroll-to={href.substring(1)}
                             >
                                 {label}
                             </a>
@@ -51,28 +52,3 @@ const navItems = [
         </nav>
     </div>
 </header>
-
-<script>
-    // Función para manejar el desplazamiento suave
-
-    function handleSmoothScroll(event) {
-        event.preventDefault();
-        const targetId = event.target.getAttribute("href").substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-            const offset = 100; // Altura del navbar fijo
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth",
-            });
-        }
-    }
-    // Agregar el evento a todos los enlaces del navbar
-    document.querySelectorAll("nav a").forEach((link) => {
-        link.addEventListener("click", handleSmoothScroll);
-    });
-</script>

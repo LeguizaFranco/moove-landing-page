@@ -20,3 +20,10 @@ const description =
 <body class="bg-gray-100 text-gray-900" id="home">
 	<slot />
 </body>
+
+<script type="module" is:inline>
+	import { setupSmoothScroll } from "../../public/scripts/scroll.js";
+	document.addEventListener("DOMContentLoaded", () => {
+		setupSmoothScroll();
+	});
+</script>
