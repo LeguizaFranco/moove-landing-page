@@ -1,9 +1,25 @@
-# Landing Page de Moove
-# Descripción del Proyecto
-Esta Landing Page está diseñada para representar un gimnasio moderno, destacando sus servicios, el ambiente motivador y los resultados de los alumnos. La página tiene un diseño responsivo y atractivo, con énfasis en la experiencia del usuario. Además, incluye testimonios de alumnos, una integración con Instagram para mostrar contenido social en tiempo real, y llamadas a la acción claras para unirse al gimnasio.
+# 💪 Landing Page de Moove
 
-# Tecnologías Utilizadas
-Astro.js: Framework estático para generar la página con un rendimiento rápido.
-Tailwind CSS: Framework de CSS para crear un diseño personalizable y moderno.
-HTML5: Para la estructura básica de la página.
-JavaScript: Interactividad adicional como la integración de publicaciones de Instagram.
+Bienvenido al repositorio de la **Landing Page de Moove**, un gimnasio moderno enfocado en resultados reales, motivación constante y una comunidad activa.
+
+## 📌 Descripción
+
+Esta landing fue diseñada con foco en la **experiencia del usuario** y la **conversión**. Presenta una estructura visualmente atractiva, completamente **responsive**, que destaca:
+
+- Servicios ofrecidos
+- Testimonios reales de alumnos
+- Integración con Instagram para mostrar contenido en tiempo real
+- Llamadas a la acción claras para potenciar la captación de nuevos miembros
+
+## 🛠️ Tecnologías
+
+- **[Astro.js](https://astro.build/)** – Framework estático para un rendimiento óptimo.
+- **[Tailwind CSS](https://tailwindcss.com/)** – Utilizado para un diseño moderno y completamente personalizable.
+- **HTML5** – Estructura semántica y accesible.
+- **JavaScript** – Para añadir interactividad e integrar contenido dinámico (como publicaciones de Instagram).
+
+## 🚀 ¿Qué hace especial a esta landing?
+
+- 💡 Foco en la conversión y usabilidad
+- 📱 Diseño adaptable a cualquier dispositivo
+- 🧩 Código limpio y modular, fácil de mantener y escalar
