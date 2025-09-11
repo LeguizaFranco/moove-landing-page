@@ -1,4 +1,8 @@
 ---
+import SocialIcon from "../shared/SocialIcon.astro";
+import qr from "../assets/icons/qr.webp";
+import { Image } from "astro:assets";
+
 const socialLinks = [
     {
         name: "WhatsApp",
@@ -24,47 +28,120 @@ const socialLinks = [
 ];
 
 const colors = {
-    whatsapp: "text-green-600 border-green-600 hover:bg-green-100",
-    instagram: "text-blue-600 border-blue-600 hover:bg-blue-100",
+    whatsapp:
+        "text-green-600 border-green-600 hover:bg-green-50 focus:ring-green-500",
+    instagram:
+        "text-blue-600 border-blue-600 hover:bg-blue-50 focus:ring-blue-500",
+};
+
+// JSON-LD para SEO
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Moove Tandil",
+    description: "Centro de entrenamiento personalizado y nutrición en Tandil",
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "Chacabuco 416",
+        addressLocality: "Tandil",
+        addressRegion: "Buenos Aires",
+        addressCountry: "Argentina",
+    },
+    telephone: "+54 2494547001",
+    openingHours: "Mo-Fr 07:00-21:00",
+    sameAs: [
+        "https://www.instagram.com/moovetandil/",
+        "https://www.instagram.com/felipemedinatraining/",
+    ],
 };
 ---
 
+<!-- JSON-LD para SEO -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
 <section
     id="contact"
-    class="bg-gray-50 py-16 sm:py-24 lg:py-20 px-4 sm:px-6 lg:px-8"
+    class="bg-gray-50 py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8"
     role="region"
-    aria-label="Sección de contacto"
+    aria-labelledby="contact-main-heading"
 >
     <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <!-- Sección de Ubicación Mejorada -->
-            <div itemscope itemtype="https://schema.org/LocalBusiness">
-                <h2 id="location-heading" class="titulo">Nuestra Ubicación</h2>
-                <div
-                    class="w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-                >
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.541851019552!2d-59.140620323273254!3d-37.32967870652874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95911f001351e82f%3A0x344e89d4f6a63e55!2sMoove%20Tandil!5e0!3m2!1ses!2sar!4v1744861229175!5m2!1ses!2sar"
-                        class="w-full h-full"
-                        loading="lazy"
-                        title="Ubicación de Moove Tandil en Google Maps"
+        <!-- Título principal de la sección -->
+        <h2 id="contact-main-heading" class="sr-only">
+            Información de contacto y ubicación
+        </h2>
+
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start"
+        >
+            <!-- Sección de Ubicación -->
+            <article itemscope itemtype="https://schema.org/LocalBusiness">
+                <h3 id="location-heading" class="titulo text-gray-900 mb-6">
+                    📍 Nuestra Ubicación
+                </h3>
+
+                <!-- Contenedor del mapa con botón de carga -->
+                <div class="map-container group">
+                    <div
+                        id="map-placeholder"
+                        class="w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-gray-200 flex items-center justify-center cursor-pointer"
+                        role="button"
                         tabindex="0"
-                        aria-label="Mapa interactivo de nuestra ubicación"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        aria-label="Cargar mapa interactivo de Google Maps"
+                        data-action="load-map"
+                    >
+                        <div class="text-center">
+                            <svg
+                                class="w-12 h-12 text-gray-400 mx-auto mb-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                ></path>
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <p class="text-gray-600 font-medium">
+                                Haz clic para cargar el mapa
+                            </p>
+                            <p class="text-gray-500 text-sm mt-1">
+                                Chacabuco 416, Tandil
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        id="map-iframe"
+                        class="w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 hidden"
+                    >
+                    </div>
                 </div>
+
+                <!-- Información de contacto -->
                 <div
-                    class="mt-6 space-y-3 text-gray-700"
+                    class="mt-6 space-y-4 text-gray-700"
                     itemprop="address"
                     itemscope
                     itemtype="https://schema.org/PostalAddress"
                 >
-                    <!-- Dirección con icono -->
-                    <div class="flex items-start">
+                    <!-- Dirección -->
+                    <div
+                        class="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
                         <svg
-                            class="h-5 w-5 mr-2 mt-0.5 text-gray-500"
+                            class="h-5 w-5 mr-3 mt-0.5 text-gray-600 flex-shrink-0"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
+                            aria-hidden="true"
                         >
                             <path
                                 stroke-linecap="round"
@@ -78,22 +155,30 @@ const colors = {
                                 stroke-width="2"
                                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
-                        <p>
-                            <span class="font-medium" itemprop="streetAddress"
-                                >Chacabuco 416</span
-                            >,
-                            <span itemprop="addressLocality">Tandil</span>,
-                            <span itemprop="addressRegion">Buenos Aires</span>
-                        </p>
+                        <div>
+                            <p class="font-semibold text-gray-900">Dirección</p>
+                            <p class="text-gray-700">
+                                <span itemprop="streetAddress"
+                                    >Chacabuco 416</span
+                                >,
+                                <span itemprop="addressLocality">Tandil</span>,
+                                <span itemprop="addressRegion"
+                                    >Buenos Aires</span
+                                >
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- Horarios con icono -->
-                    <div class="flex items-start">
+                    <!-- Horarios -->
+                    <div
+                        class="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
                         <svg
-                            class="h-5 w-5 mr-2 mt-0.5 text-gray-500"
+                            class="h-5 w-5 mr-3 mt-0.5 text-gray-600 flex-shrink-0"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
+                            aria-hidden="true"
                         >
                             <path
                                 stroke-linecap="round"
@@ -103,26 +188,29 @@ const colors = {
                             ></path>
                         </svg>
                         <div>
-                            <p class="font-medium">Horarios de atención:</p>
-                            <ul class="list-disc list-inside ml-4">
-                                <li>
-                                    <time
-                                        itemprop="openingHours"
-                                        datetime="Mo-Fr 08:00-20:00"
-                                        >Lunes a Viernes: 7:00 - 20:00 hs</time
-                                    >
-                                </li>
-                            </ul>
+                            <p class="font-semibold text-gray-900">
+                                Horarios de atención
+                            </p>
+                            <time
+                                itemprop="openingHours"
+                                datetime="Mo-Fr 07:00-21:00"
+                                class="text-gray-700"
+                            >
+                                Lunes a Viernes: 7:00 - 21:00 hs
+                            </time>
                         </div>
                     </div>
 
-                    <!-- Teléfono con icono -->
-                    <div class="flex items-center">
+                    <!-- Teléfono -->
+                    <div
+                        class="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
                         <svg
-                            class="h-5 w-5 mr-2 text-gray-500"
+                            class="h-5 w-5 mr-3 mt-0.5 text-gray-600 flex-shrink-0"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
+                            aria-hidden="true"
                         >
                             <path
                                 stroke-linecap="round"
@@ -131,102 +219,89 @@ const colors = {
                                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                             ></path>
                         </svg>
-                        <a
-                            href={socialLinks[0].url}
-                            class="hover:text-blue-600 transition-colors"
-                            itemprop="telephone">+54 2494547001</a
-                        >
+                        <div>
+                            <p class="font-semibold text-gray-900">Teléfono</p>
+                            <a
+                                href={socialLinks[0].url}
+                                class=" hover:text-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+                                itemprop="telephone"
+                                aria-label="Llamar o enviar WhatsApp a +54 2494547001"
+                            >
+                                +54 2494547001
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- Sección de Contacto Mejorada -->
-            <div>
-                <h2 class="titulo">Contáctanos</h2>
+            <!-- Sección de Contacto -->
+            <article>
+                <h3 class="titulo text-gray-900 mb-6">💬 Contáctanos</h3>
 
-                <!-- Enlaces Sociales Optimizados -->
-                <div
-                    class="flex flex-wrap gap-4 mb-8 justify-center md:justify-start"
-                >
-                    {
-                        socialLinks.map(({ name, url, icon, ariaLabel }) => (
-                            <a
-                                href={url}
-                                class={`flex items-center border-2 ${colors[icon]} text-lg  px-3 sm:px-4 py-2 rounded-2xl transition-all duration-200 hover:scale-105 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                                aria-label={`${ariaLabel} (se abre en nueva ventana)`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6 lg:mr-2"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    aria-hidden="true"
-                                >
-                                    {icon === "whatsapp" ? (
-                                        <>
-                                            <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-                                            <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-                                        </>
-                                    ) : (
-                                        <>
-                                            <rect
-                                                x="2"
-                                                y="2"
-                                                width="20"
-                                                height="20"
-                                                rx="5"
-                                                ry="5"
-                                            />
-                                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                            <line
-                                                x1="17.5"
-                                                y1="6.5"
-                                                x2="17.51"
-                                                y2="6.5"
-                                            />
-                                        </>
-                                    )}
-                                </svg>
-                                <span class="hidden md:inline-block">
-                                    {name}
-                                </span>
-                            </a>
-                        ))
-                    }
+                <!-- Enlaces Sociales -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4">
+                        Síguenos en redes sociales
+                    </h4>
+                    <div
+                        class="flex flex-wrap gap-4 justify-center md:justify-start"
+                    >
+                        {
+                            socialLinks.map(
+                                ({ name, url, icon, ariaLabel }) => (
+                                    <a
+                                        href={url}
+                                        class={`flex items-center border-2 ${colors[icon]} text-sm sm:text-base px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2`}
+                                        aria-label={`${ariaLabel} (se abre en nueva ventana)`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <SocialIcon
+                                            name={icon}
+                                            class="h-5 w-5 sm:h-6 sm:w-6 mr-2 "
+                                        />
+                                        <span class="ml-2">{name}</span>
+                                    </a>
+                                ),
+                            )
+                        }
+                    </div>
                 </div>
 
-                <!-- Código QR Mejorado -->
+                <!-- Código QR -->
                 <figure class="text-center md:text-left">
-                    <figcaption
+                    <h4
                         id="qr-heading"
-                        class="text-xl font-semibold mb-4 text-gray-900"
+                        class="text-lg font-semibold mb-4 text-gray-900"
                     >
-                        Escanea el código QR para más información
+                        📱 Acceso rápido
+                    </h4>
+                    <figcaption class="text-gray-600 mb-4">
+                        Escanea el código QR para acceder a nuestros enlaces de
+                        contacto
                     </figcaption>
                     <div
-                        class="inline-block p-2 bg-white rounded-lg shadow-md w-40 sm:w-48"
+                        class="inline-block p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow"
                     >
-                        <img
-                            src="/qr.png"
-                            alt="Código QR para contactar a Moove Tandil"
-                            width="160"
-                            height="160"
+                        <Image
+                            src={qr}
+                            alt="Código QR con enlaces de contacto de Moove Tandil - WhatsApp e Instagram"
+                            width={160}
+                            height={160}
                             class="mx-auto"
                             loading="lazy"
-                            aria-describedby="qr-heading"
+                            aria-describedby="qr-description"
                         />
                     </div>
-                    <p class="mt-2 text-sm text-gray-600">
-                        Apunta la cámara de tu teléfono al código
+                    <p
+                        id="qr-description"
+                        class="mt-3 text-sm text-gray-600 max-w-xs mx-auto md:mx-0"
+                    >
+                        Apunta la cámara de tu teléfono al código para acceder a
+                        WhatsApp e Instagram
                     </p>
                 </figure>
-            </div>
+            </article>
         </div>
     </div>
 </section>
@@ -234,30 +309,92 @@ const colors = {
 <style>
     .titulo {
         font-family: "Bebas Neue", serif;
-        font-size: 3rem;
+        font-size: clamp(1.875rem, 4vw, 2.5rem);
         font-weight: 800;
-        text-align: center;
-        margin-bottom: 1.5rem;
+        line-height: 1.2;
     }
 
-    @media (min-width: 640px) {
-        .titulo {
-            font-size: 3rem;
-            line-height: 1.3;
+    .map-container:hover #map-placeholder {
+        background-color: #f3f4f6;
+    }
+
+    /* Mejora de focus para accesibilidad */
+    .map-container #map-placeholder:focus {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+    }
+
+    /* Animación suave para elementos */
+    article {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
         }
-    }
-
-    @media (min-width: 768px) {
-        .titulo {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .titulo {
-            font-size: 3rem;
-            margin-bottom: 2rem;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 </style>
+
+<script>
+    let mapLoaded = false;
+
+    function loadMap() {
+        if (mapLoaded) return;
+
+        const placeholder = document.getElementById("map-placeholder");
+        const mapContainer = document.getElementById("map-iframe");
+
+        if (placeholder && mapContainer) {
+            const iframe = document.createElement("iframe");
+            iframe.src =
+                "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.541851019552!2d-59.140620323273254!3d-37.32967870652874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95911f001351e82f%3A0x344e89d4f6a63e55!2sMoove%20Tandil!5e0!3m2!1ses!2sar!4v1744861229175!5m2!1ses!2sar";
+            iframe.className = "w-full h-full";
+            iframe.loading = "lazy";
+            iframe.title = "Ubicación de Moove Tandil en Google Maps";
+            iframe.setAttribute(
+                "aria-label",
+                "Mapa interactivo de nuestra ubicación",
+            );
+            iframe.referrerPolicy = "no-referrer-when-downgrade";
+
+            mapContainer.appendChild(iframe);
+            placeholder.classList.add("hidden");
+            mapContainer.classList.remove("hidden");
+
+            mapLoaded = true;
+        }
+    }
+
+    // Event listeners más robustos
+    document.addEventListener("DOMContentLoaded", () => {
+        const mapPlaceholder = document.getElementById("map-placeholder");
+
+        if (mapPlaceholder) {
+            // Click event
+            mapPlaceholder.addEventListener("click", loadMap);
+
+            // Keyboard event
+            mapPlaceholder.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    loadMap();
+                }
+            });
+
+            // Hover preload
+            mapPlaceholder.addEventListener("mouseenter", () => {
+                setTimeout(() => {
+                    if (!mapLoaded) {
+                        loadMap();
+                    }
+                }, 1000);
+            });
+        }
+    });
+</script>

@@ -1,44 +1,119 @@
 ---
+// Importa las imágenes correctamente
+import img1 from "../assets/images/1.webp";
+import img2 from "../assets/images/2.webp";
+import img3 from "../assets/images/3.webp";
+import img5 from "../assets/images/5.webp";
+import img6 from "../assets/images/6.webp";
+import img8 from "../assets/images/8.webp";
+import img10 from "../assets/images/10.webp";
+import img11 from "../assets/images/11.webp";
+import img12 from "../assets/images/12.webp";
+import img13 from "../assets/images/13.webp";
+import img14 from "../assets/images/14.webp";
+import img15 from "../assets/images/15.webp";
+import img16 from "../assets/images/16.webp";
+import img17 from "../assets/images/17.webp";
+import img18 from "../assets/images/18.webp";
+
 const galleryImages = [
-    { type: "video", src: "/video.webm" },
-    { type: "image", src: "/imagen5.webp" },
-    { type: "video", src: "/alumno.mp4" },
-    { type: "image", src: "/imagen3.webp" },
-    { type: "image", src: "/imagen2.webp" },
-    { type: "image", src: "/gym.webp" },
-    { type: "image", src: "/imagen6.webp" },
-    { type: "image", src: "/imagen7.webp" },
-    { type: "image", src: "/imagen4.webp" },
+    { type: "image", src: img1, alt: "Espacio de entrenamiento 1" },
+    { type: "image", src: img2, alt: "Espacio de entrenamiento 2" },
+    { type: "image", src: img3, alt: "Espacio de entrenamiento 3" },
+    { type: "image", src: img5, alt: "Equipamiento profesional" },
+    { type: "image", src: img6, alt: "Área de ejercicios" },
+    { type: "image", src: img8, alt: "Zona de entrenamiento" },
+    { type: "image", src: img10, alt: "Instalaciones Moove" },
+    { type: "image", src: img11, alt: "Espacio de trabajo" },
+    { type: "image", src: img12, alt: "Área de fitness" },
+    { type: "image", src: img13, alt: "Equipos de gimnasio" },
+    { type: "image", src: img14, alt: "Zona de entrenamiento personal" },
+    { type: "image", src: img15, alt: "Instalaciones completas" },
+    { type: "image", src: img16, alt: "Espacio de entrenamiento moderno" },
+    { type: "image", src: img17, alt: "Área de ejercicios funcionales" },
+    { type: "image", src: img18, alt: "Gimnasio completo Moove" },
 ];
 ---
 
-<section id="galery" class="bg-gray-900 text-white py-16 px-6">
+<section
+    id="galery"
+    class="bg-gray-900 text-white py-16 px-6 relative overflow-hidden"
+>
     <div class="max-w-5xl mx-auto text-center">
         <h1 class="titulo">
             Conoce nuestro <span class="text-blue-600">espacio</span>
         </h1>
     </div>
 
-    <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-        {
-            galleryImages.map((item, index) => (
-                <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                    {item.type === "image" ? (
+    <div
+        id="carousel-container"
+        class="mt-10 max-w-6xl mx-auto relative carousel-height overflow-hidden"
+    >
+        <div
+            id="carousel-items"
+            class="flex transition-transform duration-500 ease-in-out h-full"
+        >
+            {
+                galleryImages.map((item) => (
+                    <div class="carousel-slide-wrapper w-full flex-shrink-0 overflow-hidden rounded-xl shadow-lg">
                         <img
-                            src={item.src}
-                            alt={`Galería ${index + 1}`}
-                            class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-110"
+                            src={item.src.src}
+                            alt={item.alt}
+                            class="w-full h-full object-cover"
                             loading="lazy"
                         />
-                    ) : (
-                        <video
-                            src={item.src}
-                            class="w-full h-full  object-contain"
-                            controls
-                            muted
-                        />
-                    )}
-                </div>
+                    </div>
+                ))
+            }
+        </div>
+
+        <button
+            id="prev-btn"
+            class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-colors duration-300 z-10"
+            aria-label="Slide anterior"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="w-6 h-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+            </svg>
+        </button>
+        <button
+            id="next-btn"
+            class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-colors duration-300 z-10"
+            aria-label="Siguiente slide"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="w-6 h-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div id="carousel-dots" class="flex justify-center mt-4 space-x-2">
+        {
+            galleryImages.map((_, index) => (
+                <button
+                    class={`w-3 h-3 rounded-full transition-colors duration-300 ${index === 0 ? "bg-blue-600" : "bg-gray-500"}`}
+                    aria-label={`Ir a slide ${index + 1}`}
+                />
             ))
         }
     </div>
@@ -52,9 +127,10 @@ const galleryImages = [
         text-align: center;
     }
 
+    /* Tu CSS de media queries para el título (sin cambios) */
     @media (min-width: 640px) {
         .titulo {
-            font-size: 3rem;
+            font-size: 2rem;
             line-height: 1.3;
         }
     }
@@ -72,4 +148,156 @@ const galleryImages = [
             margin-bottom: 2rem;
         }
     }
+
+    /*
+     * Nuevas clases para definir el tamaño del carrusel.
+     */
+    .carousel-height {
+        height: 100%; /* Tamaño grande para desktop */
+    }
+
+    .carousel-slide-wrapper {
+        height: 100%; /* Ocupa el 100% del alto del contenedor */
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    /* Ajuste para móviles, haciendo el carrusel más pequeño */
+    @media (max-width: 767px) {
+        .carousel-height {
+            height: 500px; /* Altura más pequeña en pantallas chicas */
+        }
+    }
 </style>
+
+<script>
+    // Este script solo se encarga del carrusel, sin la lógica de scroll.
+
+    const carouselItems = document.getElementById("carousel-items");
+    const carouselContainer = document.getElementById("carousel-container");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const carouselDots = document.getElementById("carousel-dots");
+    const totalSlides = carouselItems.children.length;
+
+    let currentIndex = 0;
+    let autoSlideInterval;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    // Lógica para detectar la visibilidad del carrusel
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    startAutoSlide();
+                } else {
+                    stopAutoSlide();
+                }
+            });
+        },
+        { threshold: 0.5 },
+    );
+
+    observer.observe(carouselContainer);
+
+    // Lógica de Autoplay
+    function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideInterval = setInterval(() => {
+            nextSlide();
+        }, 5000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    function resetAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    // Lógica para actualizar el carrusel y los puntos
+    function updateCarousel() {
+        const offset = -currentIndex * 100;
+        carouselItems.style.transform = `translateX(${offset}%)`;
+
+        Array.from(carouselDots.children).forEach((dot, index) => {
+            dot.classList.toggle("bg-blue-600", index === currentIndex);
+            dot.classList.toggle("bg-gray-500", index !== currentIndex);
+        });
+    }
+
+    // Lógica de Deslizamiento Táctil y con Mouse
+    function getPositionX(event) {
+        return event.type.includes("mouse")
+            ? event.pageX
+            : event.touches[0].clientX;
+    }
+
+    function touchStart(event) {
+        stopAutoSlide();
+        isDragging = true;
+        startPos = getPositionX(event);
+        prevTranslate = currentTranslate;
+        carouselItems.style.transition = "none";
+    }
+
+    function touchMove(event) {
+        if (!isDragging) return;
+        const currentPosition = getPositionX(event);
+        currentTranslate = prevTranslate + currentPosition - startPos;
+        carouselItems.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function touchEnd() {
+        isDragging = false;
+        const movedBy = currentTranslate - prevTranslate;
+        if (movedBy < -100) {
+            nextSlide();
+        } else if (movedBy > 100) {
+            prevSlide();
+        }
+        carouselItems.style.transition = "transform 0.5s ease-in-out";
+        updateCarousel();
+        startAutoSlide();
+    }
+
+    // Event listeners para los botones
+    nextBtn.addEventListener("click", () => {
+        nextSlide();
+        resetAutoSlide();
+    });
+
+    prevBtn.addEventListener("click", () => {
+        prevSlide();
+        resetAutoSlide();
+    });
+
+    // Event listeners para el deslizamiento
+    carouselContainer.addEventListener("mousedown", touchStart);
+    carouselContainer.addEventListener("mouseup", touchEnd);
+    carouselContainer.addEventListener("mouseleave", touchEnd);
+    carouselContainer.addEventListener("mousemove", touchMove);
+    carouselContainer.addEventListener("touchstart", touchStart);
+    carouselContainer.addEventListener("touchend", touchEnd);
+    carouselContainer.addEventListener("touchmove", touchMove);
+
+    // Inicializar el carrusel
+    window.addEventListener("load", () => {
+        updateCarousel();
+    });
+</script>
