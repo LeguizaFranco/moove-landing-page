@@ -13,6 +13,26 @@
     font-display: swap;
 }
 
+/* Ya tenías scroll-behavior, ¡eso es perfecto! */
 html {
     scroll-behavior: smooth;
+}
+
+/* Agrega esto para el offset del encabezado */
+:root {
+    /* Define la altura de tu encabezado en una variable */
+    --header-height: 100px;
+    /* Para móviles, puedes tener una altura diferente */
+}
+
+/* Aplica el scroll-padding a todo el HTML */
+html {
+    scroll-padding-top: var(--header-height);
+}
+
+/* Si tienes una altura diferente para móviles */
+@media (max-width: 500px) {
+    :root {
+        --header-height: 170px;
+    }
 }
