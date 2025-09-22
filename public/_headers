@@ -8,11 +8,6 @@
   # === Permissions Policy mínima ===
   Permissions-Policy: geolocation=(self), autoplay=(self), fullscreen=(self)
 
-  # === Cross-Origin Headers ===
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Embedder-Policy: credentialless
-  Cross-Origin-Resource-Policy: cross-origin
-
   # === Cache-Control (HTML principal) ===
   Cache-Control: no-cache
 
