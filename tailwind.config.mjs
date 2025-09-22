@@ -1,5 +1,6 @@
-import typography from '@tailwindcss/typography'
-module.exports = {
+import typography from '@tailwindcss/typography';
+
+export default {
     content: [
         "./src/**/*.{astro,js,ts,jsx,tsx}",
         "node_modules/flowbite/**/*.js"
@@ -7,6 +8,5 @@ module.exports = {
     theme: {
         extend: {},
     },
-    plugins: [require('flowbite/plugin')],
-    plugins: [typography],
+    plugins: [typography, require('flowbite/plugin')],
 };

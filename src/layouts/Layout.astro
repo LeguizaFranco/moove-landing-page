@@ -1,29 +1,22 @@
 ---
 import "../styles/global.css";
 const description =
-	"Únete a nuestro gimnasio y transforma tu cuerpo y mente. Ofrecemos entrenamientos personalizados, un ambiente motivador y equipos de última generación para ayudarte a alcanzar tus metas de fitness. Ya sea que busques tonificar, perder peso o aumentar tu fuerza, estamos aquí para apoyarte en cada paso del camino.";
+	"Entrena desde donde estés y alcanza tus metas sin límites. Nuestro programa online te ofrece rutinas personalizadas, seguimiento de expertos y la motivación que necesitas para mantenerte constante. Adapta tus entrenamientos a tu ritmo y tu estilo de vida, con la misma calidad que en un gimnasio físico. No solo entrenes: crece, supérate y vive el cambio que siempre has buscado. Moove"
+import logo from "../assets/icons/logo-oscuro.webp";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
-		<link rel="icon" type="image/svg+xml" href="/logo.ico" />
-		<link rel="preload" as="image" href="/logo.ico" type="image/ico" />
-		<link rel="preload" as="image" href="/fondo.webp" type="image/webp" />
+		<link rel="icon" type="image/webp" href={logo.src} />
 		<title>Moove</title>
 	</head>
+	<body class="bg-gray-100 text-gray-900" id="home">
+		<slot />
+		<script type="module" src="../utils/scroll.js"></script>
+	</body>
 </html>
-<body class="bg-gray-100 text-gray-900" id="home">
-	<slot />
-</body>
-
-<script type="module" is:inline>
-	import { setupSmoothScroll } from "/scripts/scroll.js";
-	document.addEventListener("DOMContentLoaded", () => {
-		setupSmoothScroll();
-	});
-</script>

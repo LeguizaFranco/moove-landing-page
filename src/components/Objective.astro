@@ -1,144 +1,388 @@
+---
+import presencial from "../assets/videos/presencial.mp4";
+import online from "../assets/videos/online.mp4";
+---
+
 <section
     id="objective"
-    class="text-center bg-gray-900 text-white py-10 md:py-16 px-4"
+    class="bg-gray-900 text-white py-16 md:py-24 px-4"
     aria-labelledby="objective-title"
 >
-    <h1 class="titulo text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6">
-        Entrenamiento Presencial y <span class="text-blue-400">Online</span>
-    </h1>
-    <p class="text-gray-300 max-w-2xl mx-auto mb-8 md:mb-12 lg:text-xl">
-        Adaptamos el entrenamiento a tu realidad. <strong
-            >Seguimiento 100% personalizado</strong
-        >.
-    </p>
-
-    <div class="flex flex-col lg:flex-row justify-center gap-8 lg:gap-12">
-        <!-- Tarjeta Presencial -->
-        <div
-            class="bg-gray-800 rounded-2xl p-6 flex-1 max-w-md mx-auto lg:mx-0"
+    <div class="text-center max-w-4xl mx-auto">
+        <h1
+            id="objective-title"
+            class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight"
+            style="font-family: 'Bebas Neue', serif;"
         >
-            <div class="flex items-center mb-4">
-                <span class="text-2xl mr-2">🏋️</span>
-                <h2 class="text-2xl font-bold text-blue-400">
-                    Entrenamiento Presencial
-                </h2>
-            </div>
-            <video
-                class="w-full rounded-lg mb-4"
-                controls
-                aria-label="Entrenamiento presencial con seguimiento en tiempo real"
-                title="Clases presenciales en Moove"
-            >
-                <source src="presencial.mp4" type="video/mp4" />
-            </video>
-            <ul class="text-left space-y-2 mb-6">
-                <li class="flex items-start">
-                    <span class="mr-2">✔</span> Corrección técnica en vivo
-                </li>
-                <li class="flex items-start">
-                    <span class="mr-2">✔</span> Equipo profesional dedicado
-                </li>
-            </ul>
+            Tu Entrenamiento,<span class="text-blue-600"> A Tu Manera</span>
+        </h1>
+        <p
+            class="text-gray-400 max-w-2xl mx-auto mb-12 md:mb-20 text-lg md:text-xl"
+        >
+            Descubre cómo nuestra metodología se adapta a ti.<br />Tu
+            entrenamiento, sin límites, presencial u online.
+        </p>
+    </div>
 
-            <!-- Sección Nutrición -->
-            <div
-                class="mt-6 p-4 bg-gray-700 rounded-lg border-l-4 border-blue-400"
-            >
-                <p class="font-semibold text-blue-300 mb-2 text-base">
-                    🍎 Nutrición Personalizada
-                </p>
-                <p class="text-base">
-                    Tu plan incluye asesoría nutricional 1:1 para maximizar tus
-                    resultados.
-                </p>
+    <div class="flex flex-col gap-12 max-w-5xl mx-auto">
+        <div
+            class="flex flex-col lg:flex-row rounded-3xl overflow-hidden bg-gray-900 shadow-2xl"
+        >
+            <div class="lg:w-2/5 flex items-center justify-center p-4">
+                <video
+                    class="w-full h-auto max-h-[80vh] object-cover rounded-2xl"
+                    controls
+                    aria-label="Ejemplo de entrenamiento presencial y resultados"
+                    title="Clases presenciales en Moove"
+                >
+                    <source src={presencial} type="video/mp4" ' />
+                </video>
             </div>
+            <div class="lg:w-3/5 p-6 md:p-8 flex flex-col justify-center">
+                <div class="flex items-center mb-4 group">
+                    <h2 class="text-2xl font-bold">
+                        Entrenamiento <span class="text-blue-400"
+                            >Presencial</span
+                        >
+                    </h2>
+                </div>
 
-            <button
-                class="mt-4 w-full bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition flex items-center justify-center"
-            >
-                <a
-                    href="https://wa.me/2494547001"
-                    target="_blank"
-                    rel="noopener noreferrer">Quiero empezar</a
-                >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-            </button>
+                <ul class="text-left text-lg space-y-4 mb-8">
+                    <li
+                        class="group flex items-start p-3 -mx-3 rounded-lg hover:bg-gray-800 transition duration-300"
+                    >
+                        <span
+                            class="mr-3 text-blue-400 group-hover:text-blue-300 transition duration-300 transform group-hover:translate-x-1"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"
+                                ></path>
+                            </svg>
+                        </span>
+                        <p
+                            class="text-gray-300 group-hover:text-white transition duration-300 leading-relaxed"
+                        >
+                            <span class="font-semibold text-white"
+                                >Corrección en tiempo real:</span
+                            >
+                            Recibe feedback técnico instantáneo de nuestros entrenadores
+                            profesionales.
+                        </p>
+                    </li>
+
+                    <li
+                        class="group flex items-start p-3 -mx-3 rounded-lg hover:bg-gray-800 transition duration-300"
+                    >
+                        <span
+                            class="mr-3 text-blue-400 group-hover:text-blue-300 transition duration-300 transform group-hover:translate-x-1"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
+                                ></path>
+                            </svg>
+                        </span>
+                        <p
+                            class="text-gray-300 group-hover:text-white transition duration-300 leading-relaxed"
+                        >
+                            <span class="font-semibold text-white"
+                                >Equipo profesional:</span
+                            >
+                            Entrena con un profesor dedicado que te guiará en cada
+                            paso.
+                        </p>
+                    </li>
+
+                    <li
+                        class="group flex items-start p-3 -mx-3 rounded-lg hover:bg-gray-800 transition duration-300"
+                    >
+                        <span
+                            class="mr-3 text-blue-400 group-hover:text-blue-300 transition duration-300 transform group-hover:translate-x-1"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z"
+                                ></path>
+                            </svg>
+                        </span>
+                        <p
+                            class="text-gray-300 group-hover:text-white transition duration-300 leading-relaxed"
+                        >
+                            <span class="font-semibold text-white"
+                                >Asesoría nutricional 1:1:</span
+                            >
+                            Plan de nutrición personalizado para maximizar tus resultados.
+                        </p>
+                    </li>
+
+                    <li
+                        class="group flex items-start p-3 -mx-3 rounded-lg hover:bg-gray-800 transition duration-300"
+                    >
+                        <span
+                            class="mr-3 text-blue-400 group-hover:text-blue-300 transition duration-300 transform group-hover:translate-x-1"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
+                                ></path>
+                            </svg>
+                        </span>
+                        <p
+                            class="text-gray-300 group-hover:text-white transition duration-300 leading-relaxed"
+                        >
+                            <span class="font-semibold text-white"
+                                >Seguimiento constante desde nuestra app:</span
+                            >
+                            tus rutinas, progreso y nutrición siempre a mano.
+                        </p>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <!-- Tarjeta Online -->
         <div
-            class="bg-gray-800 rounded-2xl p-6 flex-1 max-w-md mx-auto lg:mx-0"
+            class="flex flex-col lg:flex-row-reverse rounded-3xl overflow-hidden bg-gray-900 shadow-2xl"
         >
-            <div class="flex items-center mb-4">
-                <span class="text-2xl mr-2">📱</span>
-                <h2 class="text-2xl font-bold text-blue-400">
-                    Entrenamiento Online
-                </h2>
-            </div>
-            <video
-                class="w-full rounded-lg mb-4"
-                controls
-                aria-label="App de entrenamiento online con seguimiento remoto"
-                title="Moove: Fitness desde casa"
-            >
-                <source src="online.mp4" type="video/mp4" />
-            </video>
-            <ul class="text-left space-y-2 mb-6">
-                <li class="flex items-start">
-                    <span class="mr-2">✔</span> Revisión semanal en la app
-                </li>
-                <li class="flex items-start">
-                    <span class="mr-2">✔</span> Contacto directo con coaches
-                </li>
-            </ul>
-
-            <!-- Sección Nutrición -->
-            <div
-                class="mt-6 p-4 bg-gray-700 rounded-lg border-l-4 border-blue-400"
-            >
-                <p class="font-semibold text-blue-300 mb-2 text-base">
-                    🍎 Nutrición Personalizada
-                </p>
-                <p class="text-base">
-                    Sesiones virtuales con nuestra nutricionista profesional.
-                </p>
-            </div>
-
-            <button
-                class="mt-4 w-full bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition flex items-center justify-center"
-            >
-                <a
-                    href="https://wa.me/2494547001"
-                    target="_blank"
-                    rel="noopener noreferrer">Quiero empezar</a
+            <div class="lg:w-2/5 flex items-center justify-center p-4">
+                <video
+                    class="w-full h-auto max-h-[80vh] object-cover rounded-2xl"
+                    controls
+                    aria-label="Ejemplo de entrenamiento online y seguimiento"
+                    title="Moove: Fitness desde casa"
                 >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-            </button>
+                    <source src={online} type="video/mp4" />
+                </video>
+            </div>
+            <div class="lg:w-3/5 p-6 md:p-8 flex flex-col justify-center">
+                <div class="flex items-center mb-4 group">
+                    <h2 class="text-2xl font-bold">
+                        Entrenamiento <span class="text-blue-400">Online</span>
+                    </h2>
+                </div>
+                <ul class="text-left text-lg space-y-4 mb-8">
+                    <li
+                        class="group flex items-start p-3 -mx-3 rounded-lg hover:bg-gray-800 transition duration-300"
+                    >
+                        <span
+                            class="mr-3 text-blue-400 group-hover:text-blue-300 transition duration-300 transform group-hover:translate-x-1"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
+                                ></path>
+                            </svg>
+                        </span>
+                        <p
+                            class="text-gray-300 group-hover:text-white transition duration-300 leading-relaxed"
+                        >
+                            <span class="font-semibold text-white"
+                                >Flexibilidad total:</span
+                            >
+                            Accede a tu plan y entrena desde cualquier lugar, a tu
+                            ritmo.
+                        </p>
+                    </li>
+
+                    <li
+                        class="group flex items-start p-3 -mx-3 rounded-lg hover:bg-gray-800 transition duration-300"
+                    >
+                        <span
+                            class="mr-3 text-blue-400 group-hover:text-blue-300 transition duration-300 transform group-hover:translate-x-1"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
+                                ></path>
+                            </svg>
+                        </span>
+                        <p
+                            class="text-gray-300 group-hover:text-white transition duration-300 leading-relaxed"
+                        >
+                            <span class="font-semibold text-white"
+                                >Seguimiento constante:</span
+                            >
+                            Conexión directa con tus coaches a través de nuestra
+                            app.
+                        </p>
+                    </li>
+
+                    <li
+                        class="group flex items-start p-3 -mx-3 rounded-lg hover:bg-gray-800 transition duration-300"
+                    >
+                        <span
+                            class="mr-3 text-blue-400 group-hover:text-blue-300 transition duration-300 transform group-hover:translate-x-1"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12"
+                                ></path>
+                            </svg>
+                        </span>
+                        <p
+                            class="text-gray-300 group-hover:text-white transition duration-300 leading-relaxed"
+                        >
+                            <span class="font-semibold text-white"
+                                >Planes a medida:</span
+                            >
+                            Tu rutina se actualiza semanalmente según tu progreso
+                            y objetivos.
+                        </p>
+                    </li>
+
+                    <li
+                        class="group flex items-start p-3 -mx-3 rounded-lg hover:bg-gray-800 transition duration-300"
+                    >
+                        <span
+                            class="mr-3 text-blue-400 group-hover:text-blue-300 transition duration-300 transform group-hover:translate-x-1"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z"
+                                ></path>
+                            </svg>
+                        </span>
+                        <p
+                            class="text-gray-300 group-hover:text-white transition duration-300 leading-relaxed"
+                        >
+                            <span class="font-semibold text-white"
+                                >Asesoría nutricional 1:1:</span
+                            >
+                            Plan de nutrición personalizado para maximizar tus resultados.
+                        </p>
+                    </li>
+
+                    <li
+                        class="group flex items-start p-3 -mx-3 rounded-lg hover:bg-gray-800 transition duration-300"
+                    >
+                        <span
+                            class="mr-3 text-blue-400 group-hover:text-blue-300 transition duration-300 transform group-hover:translate-x-1"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"
+                                ></path>
+                            </svg>
+                        </span>
+                        <p
+                            class="text-gray-300 group-hover:text-white transition duration-300 leading-relaxed"
+                        >
+                            <span class="font-semibold text-white"
+                                >Biblioteca de entrenamientos on-demand:
+                            </span>
+                            Accede a una amplia colección de videos y rutinas grabadas
+                            que puedes hacer cuando quieras.
+                        </p>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </div>
+
+    <div class="text-center mt-12 md:mt-16">
+        <button
+            class="w-full max-w-xs bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-medium transition duration-300 flex items-center justify-center text-lg mx-auto"
+        >
+            <a
+                href="https://wa.me/2494547001"
+                target="_blank"
+                rel="noopener noreferrer">Empezá tu cambio hoy</a
+            >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+        </button>
     </div>
 </section>
 

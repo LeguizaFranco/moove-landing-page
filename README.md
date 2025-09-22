@@ -46,17 +46,25 @@ El diseño es **responsivo**, **rápido** y **centrado en el usuario**, lo que g
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📁 Estructura Mejorada del Proyecto
 
 ```bash
 moove-landing/
 ├── public/
-│   └── assets/
+│   └── fonts          
 ├── src/
-│   ├── components/
-│   ├── layouts/
-│   ├── pages/
-│   └── styles/
+│   ├── assets/            
+│   │   ├── images/
+│   │   ├── icons/
+│   │   └── videos/
+│   ├── components/       
+│   ├── layouts/          
+│   ├── pages/            
+│   ├── shared/           
+│   ├── styles/           
+│   └── utils/            
+├── package.json
 ├── astro.config.mjs
-├── tailwind.config.js
-└── package.json
+├── tailwind.config.mjs
+├── tsconfig.json
+└── README.md
