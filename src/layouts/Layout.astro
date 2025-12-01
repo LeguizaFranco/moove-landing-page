@@ -32,6 +32,18 @@ import logo from "../assets/icons/logo-oscuro.webp";
 		<link rel="icon" type="image/webp" href={logo.src} />
 		<title>Moove</title>
 	</head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3ZJTHLQ92"
+	></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-K3ZJTHLQ92");
+	</script>
 	<body class="bg-gray-100 text-gray-900" id="home">
 		<!-- Google Tag Manager (noscript) -->
 		<noscript
